@@ -1,0 +1,25 @@
+ROTEIRO RÁPIDO PARA APRESENTAÇÃO — MINI-SO
+
+1. Objetivo do projeto
+O programa simula um Sistema Operacional básico que gerencia processos na CPU e na memória RAM.
+
+2. PCB
+Cada processo possui PID, tempo total de execução, tempo restante, prioridade, memória solicitada e estado.
+
+3. Escalonamento Round-Robin
+O quantum usado foi 2 segundos. Se o processo não terminar dentro desse tempo, ocorre troca de contexto e ele volta para o final da fila de prontos.
+
+4. Gerência de Memória
+A RAM foi simulada como um vetor de 1024 posições. Cada posição representa 1 byte. O valor 0 significa livre e o PID significa ocupado.
+
+5. First-Fit
+Quando um processo precisa entrar na memória, o sistema procura o primeiro bloco livre contíguo com tamanho suficiente.
+
+6. Fila de Espera
+Se não houver espaço suficiente na RAM, o processo aguarda na fila de espera por memória.
+
+7. Finalização
+Quando o tempo restante chega a zero, o processo é encerrado e sua memória é liberada.
+
+8. Log Final
+Ao final da simulação, o programa cria um arquivo logs/log_memoria_final.txt com o estado final da memória.

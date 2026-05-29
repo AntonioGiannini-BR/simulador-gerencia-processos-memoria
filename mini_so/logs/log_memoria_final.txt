@@ -1,0 +1,4 @@
+LOG FINAL DA MEMORIA RAM SIMULADA
+Tamanho total: 1024 bytes
+
+Livre: inicio=0, tamanho=1024B

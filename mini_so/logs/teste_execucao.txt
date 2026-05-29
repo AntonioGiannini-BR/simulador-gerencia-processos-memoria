@@ -1,0 +1,208 @@
+
+===== MINI-SO: SIMULADOR DE PROCESSOS E MEMORIA =====
+Quantum definido: 2 segundos
+RAM simulada: 1024 bytes
+
+PID 1 entrou na fila de prontos.
+PID 2 entrou na fila de prontos.
+PID 3 entrou na fila de prontos.
+PID 4 entrou na fila de prontos.
+--------------------------------------------------
+Tempo Atual: 01 s
+CPU: Executando PID 1 (Restam 9s)
+Fila de Prontos: [PID 2] -> [PID 3] -> [PID 4]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 02 s
+CPU: Executando PID 1 (Restam 8s)
+Fila de Prontos: [PID 2] -> [PID 3] -> [PID 4]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+Troca de contexto: PID 1 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 03 s
+CPU: Executando PID 2 (Restam 3s)
+Fila de Prontos: [PID 3] -> [PID 4] -> [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 04 s
+CPU: Executando PID 2 (Restam 2s)
+Fila de Prontos: [PID 3] -> [PID 4] -> [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+Troca de contexto: PID 2 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 05 s
+CPU: Executando PID 3 (Restam 5s)
+Fila de Prontos: [PID 4] -> [PID 1] -> [PID 2]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 06 s
+CPU: Executando PID 3 (Restam 4s)
+Fila de Prontos: [PID 4] -> [PID 1] -> [PID 2]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+Troca de contexto: PID 3 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 07 s
+CPU: Executando PID 4 (Restam 1s)
+Fila de Prontos: [PID 1] -> [PID 2] -> [PID 3]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 08 s
+CPU: Executando PID 4 (Restam 0s)
+Fila de Prontos: [PID 1] -> [PID 2] -> [PID 3]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][P4: 128B][Livre: 84B]
+--------------------------------------------------
+
+Saida: PID 4 finalizado e memoria liberada.
+
+--------------------------------------------------
+Tempo Atual: 09 s
+CPU: Executando PID 1 (Restam 7s)
+Fila de Prontos: [PID 2] -> [PID 3]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 10 s
+CPU: Executando PID 1 (Restam 6s)
+Fila de Prontos: [PID 2] -> [PID 3]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+Troca de contexto: PID 1 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 11 s
+CPU: Executando PID 2 (Restam 1s)
+Fila de Prontos: [PID 3] -> [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 12 s
+CPU: Executando PID 2 (Restam 0s)
+Fila de Prontos: [PID 3] -> [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][P2: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+Saida: PID 2 finalizado e memoria liberada.
+
+--------------------------------------------------
+Tempo Atual: 13 s
+CPU: Executando PID 3 (Restam 3s)
+Fila de Prontos: [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 14 s
+CPU: Executando PID 3 (Restam 2s)
+Fila de Prontos: [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+Troca de contexto: PID 3 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 15 s
+CPU: Executando PID 1 (Restam 5s)
+Fila de Prontos: [PID 3]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 16 s
+CPU: Executando PID 1 (Restam 4s)
+Fila de Prontos: [PID 3]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+Troca de contexto: PID 1 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 17 s
+CPU: Executando PID 3 (Restam 1s)
+Fila de Prontos: [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 18 s
+CPU: Executando PID 3 (Restam 0s)
+Fila de Prontos: [PID 1]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 100B][P3: 512B][Livre: 212B]
+--------------------------------------------------
+
+Saida: PID 3 finalizado e memoria liberada.
+
+--------------------------------------------------
+Tempo Atual: 19 s
+CPU: Executando PID 1 (Restam 3s)
+Fila de Prontos: [vazia]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 824B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 20 s
+CPU: Executando PID 1 (Restam 2s)
+Fila de Prontos: [vazia]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 824B]
+--------------------------------------------------
+
+Troca de contexto: PID 1 voltou para o final da fila.
+
+--------------------------------------------------
+Tempo Atual: 21 s
+CPU: Executando PID 1 (Restam 1s)
+Fila de Prontos: [vazia]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 824B]
+--------------------------------------------------
+
+--------------------------------------------------
+Tempo Atual: 22 s
+CPU: Executando PID 1 (Restam 0s)
+Fila de Prontos: [vazia]
+Fila de Espera por Memoria: [vazia]
+Mapa da RAM: [P1: 200B][Livre: 824B]
+--------------------------------------------------
+
+Saida: PID 1 finalizado e memoria liberada.
+
+===== SIMULACAO FINALIZADA =====
