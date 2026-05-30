@@ -330,7 +330,7 @@ gcc src/*.c -Iinclude -o mini_so
 
 ---
 
-# ❗ Possíveis Problemas
+#  Possíveis Problemas
 
 ## gcc: command not found
 
@@ -380,7 +380,7 @@ mini_so/
 
 ---
 
-# 📖 Aprendizados Obtidos
+#  Aprendizados Obtidos
 
 Este projeto permite compreender na prática:
 
@@ -394,7 +394,7 @@ Este projeto permite compreender na prática:
 
 ---
 
-# 👨‍💻 Autores
+#  Autores
 
 Antonio Giannini
 Cecilia Galindo 
@@ -405,7 +405,7 @@ Professora: Monique Soares
 
 ---
 
-# 🏆 Conclusão
+#  Conclusão
 
 O Mini-SO simula de forma simplificada o comportamento de um Sistema Operacional real, demonstrando como processos são escalonados, como a memória é gerenciada e como diferentes componentes do sistema trabalham em conjunto.
 
