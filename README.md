@@ -123,7 +123,7 @@ mini_so/
 
 ---
 
-# 📄 Arquivo de Entrada
+# Arquivo de Entrada
 
 O programa lê os processos a partir do arquivo:
 
@@ -171,7 +171,7 @@ Durante a simulação um processo pode assumir os seguintes estados:
 
 ---
 
-# ⚙️ Como Compilar e Executar
+# Como Compilar e Executar
 
 ## Método 1 - MSYS2 UCRT64
 
