@@ -53,26 +53,6 @@ PCB* desenfileirar(Fila* fila) {
 }
 
 /*
- * Mostra a fila no formato pedido no PDF:
- * [PID 3] -> [PID 1] -> ...
- */
-void imprimir_fila(const Fila* fila) {
-    if (fila_vazia(fila)) {
-        printf("[vazia]");
-        return;
-    }
-
-    for (int i = 0; i < fila->tamanho; i++) {
-        int indice = (fila->inicio + i) % MAX_PROCESSOS;
-        printf("[PID %d]", fila->dados[indice]->pid);
-
-        if (i < fila->tamanho - 1) {
-            printf(" -> ");
-        }
-    }
-}
-
-/*
  * Mostra a fila no terminal com cores.
  * A estrutura original da fila foi mantida:
  * ela continua sendo uma fila circular baseada no vetor dados[],
@@ -94,3 +74,4 @@ void imprimir_fila(const Fila* fila) {
         }
     }
 }
+
