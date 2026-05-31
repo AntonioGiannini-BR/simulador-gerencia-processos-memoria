@@ -33,28 +33,42 @@ static void tentar_admitir_processos(Fila* espera, Fila* prontos, int ram[]) {
  * Imprime o estado do Mini-SO a cada unidade de tempo.
  * Esta saída segue a sugestão do PDF: tempo, CPU, fila e mapa da RAM.
  */
-static void imprimir_status(int tempo, PCB* cpu, const Fila* prontos, const Fila* espera, int ram[]) {
-    printf("--------------------------------------------------\n");
-    printf("Tempo Atual: %02d s\n", tempo);
+void imprimirStatus(int tempoAtual, Processo *cpu, Fila *filaProntos, Fila *filaEspera) {
+    printf(CIANO NEGRITO "\n==================================================\n" RESET);
+    printf(FUNDO_AZUL BRANCO NEGRITO "           MINI-SO - STATUS DO SISTEMA           " RESET "\n");
+    printf(CIANO NEGRITO "==================================================\n" RESET);
+
+    printf(AMARELO NEGRITO "Tempo Atual: " RESET "%d s\n\n", tempoAtual);
+
+    printf(AZUL NEGRITO "CPU: " RESET);
 
     if (cpu != NULL) {
-        printf("CPU: Executando PID %d (Restam %ds)\n", cpu->pid, cpu->tempo_restante);
+        printf(VERDE "Executando PID %d " RESET, cpu->pid);
+        printf("(Restam %d s)\n", cpu->tempoRestante);
     } else {
-        printf("CPU: Ociosa\n");
+        printf(VERMELHO "Livre\n" RESET);
     }
 
-    printf("Fila de Prontos: ");
-    imprimir_fila(prontos);
-    printf("\n");
+    printf("\n" MAGENTA NEGRITO "Fila de Prontos: " RESET);
 
-    printf("Fila de Espera por Memoria: ");
-    imprimir_fila(espera);
-    printf("\n");
+    if (filaVazia(filaProntos)) {
+        printf(VERMELHO "Vazia\n" RESET);
+    } else {
+        imprimirFilaColorida(filaProntos);
+    }
 
-    printf("Mapa da RAM: ");
-    imprimir_mapa_memoria(ram);
-    printf("\n");
-    printf("--------------------------------------------------\n\n");
+    printf(MAGENTA NEGRITO "Fila de Espera: " RESET);
+
+    if (filaVazia(filaEspera)) {
+        printf(VERMELHO "Vazia\n" RESET);
+    } else {
+        imprimirFilaColorida(filaEspera);
+    }
+
+    printf("\n" CIANO NEGRITO "Mapa da RAM:\n" RESET);
+    imprimirMemoriaColorida();
+
+    printf(CIANO NEGRITO "==================================================\n" RESET);
 }
 
 /*
