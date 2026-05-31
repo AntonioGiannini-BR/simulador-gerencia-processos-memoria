@@ -2,6 +2,7 @@
 #include "simulador.h"
 #include "fila.h"
 #include "memoria.h"
+#include "cores.h"
 
 /*
  * Tenta mover processos da fila de espera para a fila de prontos.
