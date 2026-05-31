@@ -64,8 +64,9 @@ void desalocar_memoria(int ram[], int pid) {
 }
 
 /*
- * Imprime um mapa visual compactado da RAM.
- * Em vez de mostrar 1024 posições uma por uma, agrupa blocos contíguos.
+ * Imprime um mapa visual compactado da RAM com cores.
+ * Em vez de mostrar 1024 posições uma por uma,
+ * agrupa blocos contíguos iguais.
  */
 void imprimir_mapa_memoria(int ram[]) {
     int i = 0;
@@ -81,9 +82,9 @@ void imprimir_mapa_memoria(int ram[]) {
         int tamanho = i - inicio;
 
         if (valor == 0) {
-            printf("[Livre: %dB]", tamanho);
+            printf(VERDE "[Livre: %dB]" RESET, tamanho);
         } else {
-            printf("[P%d: %dB]", valor, tamanho);
+            printf(AZUL "[P%d: %dB]" RESET, valor, tamanho);
         }
     }
 }
@@ -124,24 +125,3 @@ void salvar_log_memoria_final(int ram[], const char* nome_arquivo) {
     fclose(arquivo);
 }
 
-void imprimirMemoriaColorida() {
-    int i = 0;
-
-    while (i < TAM_MEMORIA) {
-        int valor = memoria[i];
-        int contador = 0;
-
-        while (i < TAM_MEMORIA && memoria[i] == valor) {
-            contador++;
-            i++;
-        }
-
-        if (valor == 0) {
-            printf(VERDE "[Livre:%dB]" RESET, contador);
-        } else {
-            printf(AZUL "[P%d:%dB]" RESET, valor, contador);
-        }
-    }
-
-    printf("\n");
-}
