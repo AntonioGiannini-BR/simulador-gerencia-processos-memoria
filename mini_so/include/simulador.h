@@ -18,6 +18,7 @@
 
 int carregar_processos(const char* nome_arquivo, PCB processos[], int limite);
 int ler_processos_teclado(PCB processos[], int limite);
+void imprimir_status(int tempo_atual, const PCB* cpu, const Fila* prontos, const Fila* espera, int ram[]);
 void executar_simulacao(PCB processos[], int quantidade);
 
 #endif
