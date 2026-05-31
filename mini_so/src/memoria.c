@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "memoria.h"
+#include "cores.h"
 
 /*
  * Preenche toda a RAM com zero.
@@ -121,4 +122,26 @@ void salvar_log_memoria_final(int ram[], const char* nome_arquivo) {
     }
 
     fclose(arquivo);
+}
+
+void imprimirMemoriaColorida() {
+    int i = 0;
+
+    while (i < TAM_MEMORIA) {
+        int valor = memoria[i];
+        int contador = 0;
+
+        while (i < TAM_MEMORIA && memoria[i] == valor) {
+            contador++;
+            i++;
+        }
+
+        if (valor == 0) {
+            printf(VERDE "[Livre:%dB]" RESET, contador);
+        } else {
+            printf(AZUL "[P%d:%dB]" RESET, valor, contador);
+        }
+    }
+
+    printf("\n");
 }
