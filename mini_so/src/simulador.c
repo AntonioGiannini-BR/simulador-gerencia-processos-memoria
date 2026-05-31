@@ -32,43 +32,34 @@ static void tentar_admitir_processos(Fila* espera, Fila* prontos, int ram[]) {
 /*
  * Imprime o estado do Mini-SO a cada unidade de tempo.
  * Esta saída segue a sugestão do PDF: tempo, CPU, fila e mapa da RAM.
+ * A impressão recebeu cores para facilitar a leitura no terminal.
  */
-void imprimirStatus(int tempoAtual, Processo *cpu, Fila *filaProntos, Fila *filaEspera) {
+void imprimir_status(int tempo_atual, const PCB* cpu, const Fila* prontos, const Fila* espera, int ram[]) {
     printf(CIANO NEGRITO "\n==================================================\n" RESET);
     printf(FUNDO_AZUL BRANCO NEGRITO "           MINI-SO - STATUS DO SISTEMA           " RESET "\n");
     printf(CIANO NEGRITO "==================================================\n" RESET);
 
-    printf(AMARELO NEGRITO "Tempo Atual: " RESET "%d s\n\n", tempoAtual);
+    printf(AMARELO NEGRITO "Tempo Atual: " RESET "%d s\n\n", tempo_atual);
 
     printf(AZUL NEGRITO "CPU: " RESET);
 
     if (cpu != NULL) {
         printf(VERDE "Executando PID %d " RESET, cpu->pid);
-        printf("(Restam %d s)\n", cpu->tempoRestante);
+        printf("(Restam %d s)\n", cpu->tempo_restante);
     } else {
         printf(VERMELHO "Livre\n" RESET);
     }
 
     printf("\n" MAGENTA NEGRITO "Fila de Prontos: " RESET);
+    imprimir_fila(prontos);
 
-    if (filaVazia(filaProntos)) {
-        printf(VERMELHO "Vazia\n" RESET);
-    } else {
-        imprimirFilaColorida(filaProntos);
-    }
+    printf("\n" MAGENTA NEGRITO "Fila de Espera: " RESET);
+    imprimir_fila(espera);
 
-    printf(MAGENTA NEGRITO "Fila de Espera: " RESET);
+    printf("\n\n" CIANO NEGRITO "Mapa da RAM:\n" RESET);
+    imprimir_mapa_memoria(ram);
 
-    if (filaVazia(filaEspera)) {
-        printf(VERMELHO "Vazia\n" RESET);
-    } else {
-        imprimirFilaColorida(filaEspera);
-    }
-
-    printf("\n" CIANO NEGRITO "Mapa da RAM:\n" RESET);
-    imprimirMemoriaColorida();
-
-    printf(CIANO NEGRITO "==================================================\n" RESET);
+    printf(CIANO NEGRITO "\n==================================================\n" RESET);
 }
 
 /*
