@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "fila.h"
+#include "cores.h"
 
 /*
  * Inicializa a fila vazia.
@@ -69,4 +70,42 @@ void imprimir_fila(const Fila* fila) {
             printf(" -> ");
         }
     }
+}
+
+/**
+ * Exibe todos os processos presentes na fila.
+ * Cada processo é mostrado pelo seu PID.
+ * A função é utilizada para visualizar o estado atual
+ * da fila de prontos ou da fila de espera durante a simulação.
+ */
+void imprimirFilaColorida(Fila *fila)
+{
+    // Verifica se a fila está vazia
+    if (fila == NULL || fila->inicio == NULL)
+    {
+        printf(VERMELHO "Vazia\n" RESET);
+        return;
+    }
+
+    // Ponteiro utilizado para percorrer a fila
+    No *atual = fila->inicio;
+
+    // Percorre todos os elementos da fila
+    while (atual != NULL)
+    {
+        // Exibe o PID do processo atual
+        printf(VERDE "[PID %d]" RESET, atual->processo->pid);
+
+        // Exibe a seta entre os elementos da fila
+        if (atual->proximo != NULL)
+        {
+            printf(AMARELO " -> " RESET);
+        }
+
+        // Avança para o próximo nó da fila
+        atual = atual->proximo;
+    }
+
+    // Quebra de linha ao final da impressão
+    printf("\n");
 }
