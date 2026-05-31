@@ -17,6 +17,5 @@ int alocar_first_fit(int ram[], PCB* processo);
 void desalocar_memoria(int ram[], int pid);
 void imprimir_mapa_memoria(int ram[]);
 void salvar_log_memoria_final(int ram[], const char* nome_arquivo);
-void imprimirMemoriaColorida();
 
 #endif
