@@ -72,40 +72,25 @@ void imprimir_fila(const Fila* fila) {
     }
 }
 
-/**
- * Exibe todos os processos presentes na fila.
- * Cada processo é mostrado pelo seu PID.
- * A função é utilizada para visualizar o estado atual
- * da fila de prontos ou da fila de espera durante a simulação.
+/*
+ * Mostra a fila no terminal com cores.
+ * A estrutura original da fila foi mantida:
+ * ela continua sendo uma fila circular baseada no vetor dados[],
+ * usando os índices inicio, fim e tamanho.
  */
-void imprimirFilaColorida(Fila *fila)
-{
-    // Verifica se a fila está vazia
-    if (fila == NULL || fila->inicio == NULL)
-    {
-        printf(VERMELHO "Vazia\n" RESET);
+void imprimir_fila(const Fila* fila) {
+    if (fila == NULL || fila_vazia(fila)) {
+        printf(VERMELHO "[vazia]" RESET);
         return;
     }
 
-    // Ponteiro utilizado para percorrer a fila
-    No *atual = fila->inicio;
+    for (int i = 0; i < fila->tamanho; i++) {
+        int indice = (fila->inicio + i) % MAX_PROCESSOS;
 
-    // Percorre todos os elementos da fila
-    while (atual != NULL)
-    {
-        // Exibe o PID do processo atual
-        printf(VERDE "[PID %d]" RESET, atual->processo->pid);
+        printf(VERDE "[PID %d]" RESET, fila->dados[indice]->pid);
 
-        // Exibe a seta entre os elementos da fila
-        if (atual->proximo != NULL)
-        {
+        if (i < fila->tamanho - 1) {
             printf(AMARELO " -> " RESET);
         }
-
-        // Avança para o próximo nó da fila
-        atual = atual->proximo;
     }
-
-    // Quebra de linha ao final da impressão
-    printf("\n");
 }
