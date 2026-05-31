@@ -30,5 +30,7 @@ int fila_cheia(const Fila* fila);
 int enfileirar(Fila* fila, PCB* processo);
 PCB* desenfileirar(Fila* fila);
 void imprimir_fila(const Fila* fila);
+/* Exibe a fila com formatação colorida */
+void imprimirFilaColorida(Fila *fila);
 
 #endif
